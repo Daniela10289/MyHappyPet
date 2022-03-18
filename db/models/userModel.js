@@ -4,16 +4,15 @@ const USER_TABLE = 'users';
 
 const UserSchema = {
   id: {
-    allowNull: false, // no se permiten nulos
+    allowNull: false,
     autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  id_user: {
+  document: {
     allowNull: false,
     type: DataTypes.INTEGER,
     unique: true
-
   },
   name_user: {
     allowNull: false,

@@ -34,6 +34,7 @@ router.post('/',
   async (req, res, next) => {
     try {
       const body = req.body;
+      // console.log("llego hasta aca");
       const newUser = await service.create(body);
       res.status(201).json(newUser);
     } catch (error) {

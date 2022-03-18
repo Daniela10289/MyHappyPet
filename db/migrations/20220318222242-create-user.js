@@ -1,6 +1,6 @@
 'use strict';
 
-const { UserSchema, USER_TABLE } = require('./../models/userModel');
+const { UserSchema, USER_TABLE } = require('./../models/userModel')
 
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -11,3 +11,4 @@ module.exports = {
     await queryInterface.dropTable(USER_TABLE);
   }
 };
+
