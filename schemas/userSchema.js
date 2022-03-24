@@ -1,10 +1,10 @@
 const Joi = require('joi');
 
 const id = Joi.number().integer();
-const document = Joi.number().min(7);
-const name_user = Joi.string().min(3);
-const last_name = Joi.string().min(3);
-const phone = Joi.number().min(7);
+const document = Joi.string();
+const name_user = Joi.string();
+const last_name = Joi.string();
+const phone = Joi.string();
 
 const createUserSchema = Joi.object({
   document: document.required(),
@@ -14,6 +14,7 @@ const createUserSchema = Joi.object({
 });
 
 const updateUserSchema = Joi.object({
+  document: document,
   name_user: name_user,
   last_name: last_name,
   phone: phone,

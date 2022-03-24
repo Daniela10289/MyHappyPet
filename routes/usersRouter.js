@@ -21,8 +21,8 @@ router.get('/:id',
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const category = await service.findOne(id);
-      res.json(category);
+      const findUser = await service.findOne(id);
+      res.json(findUser);
     } catch (error) {
       next(error);
     }
@@ -34,7 +34,6 @@ router.post('/',
   async (req, res, next) => {
     try {
       const body = req.body;
-      // console.log("llego hasta aca");
       const newUser = await service.create(body);
       res.status(201).json(newUser);
     } catch (error) {
@@ -50,8 +49,8 @@ router.patch('/:id',
     try {
       const { id } = req.params;
       const body = req.body;
-      const category = await service.update(id, body);
-      res.json(category);
+      const editUser = await service.update(id, body);
+      res.json(editUser);
     } catch (error) {
       next(error);
     }

@@ -11,7 +11,7 @@ const UserSchema = {
   },
   document: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     unique: true
   },
   name_user: {
@@ -24,7 +24,7 @@ const UserSchema = {
   },
   phone: {
     allowNull: false,
-    type: DataTypes.INTEGER
+    type: DataTypes.STRING
     // defaultValue: '0'
   },
   createdAt: {
