@@ -1,5 +1,6 @@
 const express = require('express');
 const routerApi = require('./routes')
+const cors = require('cors');
 
 const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/errorHandler');
 
@@ -7,6 +8,8 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
+
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hola mi server en express');
