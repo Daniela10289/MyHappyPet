@@ -26,6 +26,13 @@ class UserService {
     return user;
   }
 
+  async findByDocument(document) {
+    const rta = await models.User.findOne({
+      where: { document }
+    });
+    return rta;
+  }
+
   async update(id, changes) {
     const user = await this.findOne(id);
     const rta = await user.update(changes);
