@@ -42,7 +42,7 @@ router.post('/',
   }
 );
 
-router.patch('/:id',
+router.put('/:id',
   validatorHandler(getUserSchema, 'params'),
   validatorHandler(updateUserSchema, 'body'),
   async (req, res, next) => {
