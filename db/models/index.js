@@ -8,6 +8,14 @@ function setupModels (sequelize) {
   Appointment.init(AppointmentSchema, Appointment.config(sequelize));
 
   // User.associate(sequelize.models);
+  User.hasMany(Pet,{
+    foreignKey: 'id',
+    as:'pets'
+  });
+  Pet.belongsTo(User, {
+    foreignKey: 'user_id',
+    as: 'user'
+  });
 }
 
 module.exports = setupModels;

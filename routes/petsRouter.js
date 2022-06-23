@@ -3,13 +3,20 @@ const express =require('express');
 const validatorHandler = require('./../middlewares/validatorHandler');
 const PetService = require('./../services/petService');
 const { createPetSchema, getPetSchema, updatePetSchema } = require('./../schemas/petSchema');
+const {User} = require('../db/models/userModel');
 
 const router = express.Router();
 const service = new PetService();
 
 router.get('/', async (req, res, next) => {
   try {
-    const pets = await service.find();
+    const pets = await service.find({
+      include: {
+        model: User, 
+        as: "user" ,
+        attributes:['id', 'name_user', 'last_name']
+      }
+    });
     res.json(pets);
   } catch (error) {
     next(error);
@@ -42,7 +49,7 @@ router.post('/',
   }
 );
 
-router.patch('/:id',
+router.put('/:id',
   validatorHandler(getPetSchema, 'params'),
   validatorHandler(updatePetSchema, 'body'),
   async (req, res, next) => {

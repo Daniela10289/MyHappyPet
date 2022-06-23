@@ -1,5 +1,4 @@
 const boom = require('@hapi/boom');
-
 const { models } = require('./../libs/sequelize');
 
 class PetService {
@@ -10,8 +9,8 @@ class PetService {
     return newPet;
   }
 
-  async find() {
-    const rta = await models.Pet.findAll({});
+  async find(attrs) {
+    const rta = await models.Pet.findAll(attrs);
     return rta;
   }
 
