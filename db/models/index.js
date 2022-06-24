@@ -7,7 +7,7 @@ function setupModels (sequelize) {
   Pet.init(PetSchema, Pet.config(sequelize));
   Appointment.init(AppointmentSchema, Appointment.config(sequelize));
 
-  // User.associate(sequelize.models);
+  // Appointment.associate(sequelize.models);
   User.hasMany(Pet,{
     foreignKey: 'id',
     as:'pets'
@@ -15,6 +15,14 @@ function setupModels (sequelize) {
   Pet.belongsTo(User, {
     foreignKey: 'user_id',
     as: 'user'
+  }); 
+  Appointment.belongsTo(User, {
+    foreignKey: 'user_id',
+    as: 'user'
+  });
+  Appointment.belongsTo(Pet, {
+    foreignKey: 'pet_id',
+    as: 'pet'
   });
 }
 

@@ -10,8 +10,8 @@ class AppointmentService {
     return newAppointment;
   }
 
-  async find() {
-    const rta = await models.Appointment.findAll({});
+  async find(attrs) {
+    const rta = await models.Appointment.findAll(attrs);
     return rta;
   }
 

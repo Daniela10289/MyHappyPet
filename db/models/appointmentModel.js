@@ -57,14 +57,7 @@ const AppointmentSchema = {
 }
 
 class Appointment extends Model {
-  static associate(models) {
-    // this.hasOne(models.Customer, {
-    //   as: 'customer',
-    //   foreignKey: 'userId'
-    // });
-  }
-
-  static config(sequelize) {
+    static config(sequelize) {
     return {
       sequelize,
       tableName: APPOINTMENT_TABLE,

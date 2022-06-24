@@ -3,13 +3,25 @@ const express =require('express');
 const validatorHandler = require('../middlewares/validatorHandler');
 const AppointmentService = require('../services/appointmentService');
 const { createAppointmentSchema, getAppointmentSchema, updateAppointmentSchema } = require('../schemas/appointmentSchema');
+const {User} = require('../db/models/userModel');
+const {Pet} = require('../db/models/petModel');
 
 const router = express.Router();
 const service = new AppointmentService();
 
 router.get('/', async (req, res, next) => {
   try {
-    const appointments = await service.find();
+    const appointments = await service.find({
+      include: [{
+        model: User, 
+        as: "user" ,
+        attributes:['id', 'name_user', 'last_name']
+      },{
+        model: Pet, 
+        as: "pet" ,
+        attributes:['id', 'name_pet']
+      }]
+    });
     res.json(appointments);
   } catch (error) {
     next(error);
