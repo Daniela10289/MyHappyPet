@@ -9,8 +9,19 @@ class PetService {
     return newPet;
   }
 
-  async find(attrs) {
+  async find(attrs, user_id) {
+    let where = {}
+    
+    if (user_id) {
+      where['user_id'] = user_id
+    }
+
+    if (Object.keys(where).length) {
+      attrs['where'] = where
+    }
+
     const rta = await models.Pet.findAll(attrs);
+
     return rta;
   }
 

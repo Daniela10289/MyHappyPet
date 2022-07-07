@@ -54,7 +54,7 @@ router.post('/',
   }
 );
 
-router.put('/:id',
+router.patch('/:id',
   validatorHandler(getAppointmentSchema, 'params'),
   validatorHandler(updateAppointmentSchema, 'body'),
   async (req, res, next) => {

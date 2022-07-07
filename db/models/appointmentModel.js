@@ -12,13 +12,13 @@ const AppointmentSchema = {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  star_datetime: {
+  start_datetime: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.DATE
   },
   end_datetime: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.DATE
   },
   title: {
     allowNull: false,

@@ -10,13 +10,14 @@ const service = new PetService();
 
 router.get('/', async (req, res, next) => {
   try {
+    const { user_id } = req.query;
     const pets = await service.find({
       include: {
         model: User, 
         as: "user" ,
         attributes:['id', 'name_user', 'last_name']
       }
-    });
+    }, user_id);
     res.json(pets);
   } catch (error) {
     next(error);
@@ -49,7 +50,7 @@ router.post('/',
   }
 );
 
-router.put('/:id',
+router.patch('/:id',
   validatorHandler(getPetSchema, 'params'),
   validatorHandler(updatePetSchema, 'body'),
   async (req, res, next) => {
