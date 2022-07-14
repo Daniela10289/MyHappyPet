@@ -15,8 +15,8 @@ class AppointmentService {
     return rta;
   }
 
-  async findOne(id) {
-    const appointment = await models.Appointment.findByPk(id);
+  async findOne(id, attrs) {
+    const appointment = await models.Appointment.findByPk(id,attrs);
     if (!appointment) {
       throw boom.notFound('appointment not found');
     }

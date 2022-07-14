@@ -33,7 +33,17 @@ router.get('/:id',
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const findAppointment = await service.findOne(id);
+      const findAppointment = await service.findOne(id,{
+        include: [{
+          model: User, 
+          as: "user" ,
+          attributes:['id', 'name_user', 'last_name']
+        },{
+          model: Pet, 
+          as: "pet" ,
+          attributes:['id', 'name_pet']
+        }]
+      });
       res.json(findAppointment);
     } catch (error) {
       next(error);
