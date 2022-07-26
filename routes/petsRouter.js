@@ -50,7 +50,7 @@ router.post('/',
   }
 );
 
-router.patch('/:id',
+router.put('/:id',
   validatorHandler(getPetSchema, 'params'),
   validatorHandler(updatePetSchema, 'body'),
   async (req, res, next) => {
