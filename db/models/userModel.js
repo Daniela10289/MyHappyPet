@@ -25,8 +25,20 @@ const UserSchema = {
   phone: {
     allowNull: false,
     type: DataTypes.STRING
-    // defaultValue: '0'
   },
+  // email: {
+  //   allowNull: true,
+  //   type: DataTypes.STRING
+  // },
+  // password: {
+  //   allowNull: true,
+  //   type: DataTypes.STRING
+  // },
+  // role: {
+  //   allowNull: true,
+  //   type: DataTypes.STRING,
+  //   defaultValue: 'customer'
+  // },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,

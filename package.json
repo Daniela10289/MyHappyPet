@@ -34,6 +34,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "pg": "^8.7.3",
+    "react-slideshow-image": "^4.0.4",
     "sequelize": "^6.17.0"
   }
 }

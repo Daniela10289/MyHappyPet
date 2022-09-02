@@ -11,6 +11,8 @@ app.use(express.json());
 
 app.use(cors());
 
+require('./utils/auth');
+
 app.get('/', (req, res) => {
   res.send('Hola mi server en express');
 })
